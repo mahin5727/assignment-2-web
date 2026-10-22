@@ -1,0 +1,339 @@
+/* basic reset so everything starts the same */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --red: #d62828;
+  --red-dark: #a61c1c;
+  --dark: #231f1c;
+  --cream: #fff6e8;
+  --gold: #f4a300;
+  --green: #2a9d5b;
+  --grey: #8a8178;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+  line-height: 1.5;
+}
+
+/* header */
+.top-bar {
+  background: var(--red);
+  color: white;
+  text-align: center;
+  padding: 24px 16px;
+  border-bottom: 6px solid var(--gold);
+}
+
+.top-bar h1 {
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+}
+
+.top-bar p {
+  opacity: 0.9;
+  margin-top: 4px;
+}
+
+/* main layout: menu on the left, other 3 panels stacked on the right */
+.layout {
+  max-width: 1200px;
+  margin: 24px auto;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas:
+    "menu login"
+    "menu cart"
+    "menu offers";
+  gap: 20px;
+  align-items: start;
+}
+
+#menuPanel   { grid-area: menu; }
+#loginPanel  { grid-area: login; }
+#cartPanel   { grid-area: cart; }
+#offersPanel { grid-area: offers; }
+
+.panel {
+  background: white;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.panel h2 {
+  font-size: 1.3rem;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 3px solid var(--gold);
+}
+
+/* pizza menu */
+.pizza-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.pizza-card {
+  background: var(--cream);
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.pizza-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+.pizza-card img {
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+}
+
+.pizza-card h3 {
+  margin: 10px 0 2px;
+  font-size: 1.05rem;
+}
+
+.price {
+  font-weight: 700;
+  color: var(--red);
+  margin-bottom: 10px;
+}
+
+/* buttons */
+.btn {
+  background: var(--red);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background: var(--red-dark);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--red);
+  border: 2px solid var(--red);
+}
+
+.btn-outline:hover {
+  background: var(--red);
+  color: white;
+}
+
+.btn-green {
+  background: var(--green);
+  width: 100%;
+  margin-top: 12px;
+}
+
+.btn-green:hover {
+  background: #1f7a45;
+}
+
+/* login form */
+label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 10px 0 4px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #e2d9cc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+#loginForm .btn {
+  width: 100%;
+  margin-top: 14px;
+}
+
+#loggedInBox p {
+  margin-bottom: 12px;
+}
+
+.hidden {
+  display: none;
+}
+
+.message {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.message.error {
+  color: var(--red);
+}
+
+.message.success {
+  color: var(--green);
+}
+
+/* cart */
+.empty-text {
+  color: var(--grey);
+  text-align: center;
+  padding: 10px 0;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee3d3;
+  gap: 8px;
+}
+
+.cart-item .info strong {
+  display: block;
+  font-size: 0.95rem;
+}
+
+.cart-item .info span {
+  font-size: 0.82rem;
+  color: var(--grey);
+}
+
+.cart-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.small-btn {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 6px;
+  background: var(--gold);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.small-btn.remove {
+  background: #f1d4d4;
+  color: var(--red);
+}
+
+.summary {
+  margin-top: 14px;
+  font-size: 0.95rem;
+}
+
+.summary .row {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+}
+
+.summary .discount {
+  color: var(--green);
+  font-weight: 600;
+}
+
+.summary .final {
+  margin-top: 8px;
+  padding-top: 10px;
+  border-top: 2px dashed var(--gold);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.hint {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: var(--grey);
+}
+
+/* offers */
+.locked {
+  text-align: center;
+  color: var(--grey);
+  padding: 14px 0;
+}
+
+.offer-card {
+  border: 2px solid #eee3d3;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.offer-card.active {
+  border-color: var(--green);
+  background: #eefaf3;
+}
+
+.offer-card h3 {
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+
+.offer-card p {
+  font-size: 0.88rem;
+}
+
+.badge {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  background: #eee3d3;
+  color: var(--grey);
+}
+
+.offer-card.active .badge {
+  background: var(--green);
+  color: white;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--grey);
+  font-size: 0.85rem;
+}
+
+/* phones and small screens, stack everything */
+@media (max-width: 800px) {
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "menu"
+      "login"
+      "cart"
+      "offers";
+  }
+}
