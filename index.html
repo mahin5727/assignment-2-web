@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slice Station | Pizza Ordering</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="top-bar">
+    <h1>🍕 Slice Station</h1>
+    <p>Hot, fresh and at your door. Pick your pizza, login and grab the offers.</p>
+  </header>
+
+  <main class="layout">
+
+    <!-- panel 1: pizza menu -->
+    <section class="panel" id="menuPanel">
+      <h2>Pizza Menu</h2>
+      <div class="pizza-grid" id="pizzaList"></div>
+    </section>
+
+    <!-- panel 2: login -->
+    <section class="panel" id="loginPanel">
+      <h2>Login</h2>
+
+      <form id="loginForm">
+        <label for="username">User name</label>
+        <input type="text" id="username" placeholder="Enter your user name">
+
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password">
+
+        <button type="submit" class="btn" id="loginBtn">Login</button>
+      </form>
+
+      <div id="loggedInBox" class="hidden">
+        <p id="welcomeText"></p>
+        <button class="btn btn-outline" id="logoutBtn">Logout</button>
+      </div>
+
+      <p class="message" id="loginMessage"></p>
+    </section>
+
+    <!-- panel 3: cart -->
+    <section class="panel" id="cartPanel">
+      <h2>Your Cart</h2>
+      <div id="cartBox"></div>
+      <p class="message" id="cartMessage"></p>
+    </section>
+
+    <!-- panel 4: offers -->
+    <section class="panel" id="offersPanel">
+      <h2>Offers</h2>
+      <div id="offersBox"></div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Web Engineering Assignment 1 | Made with HTML, CSS and JavaScript</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
